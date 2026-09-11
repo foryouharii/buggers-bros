@@ -1,0 +1,13 @@
+{
+  "name": "qr-time-smartwatch-app",
+  "version": "1.0.0",
+  "description": "QR Time Smartwatch App - Real-time QR Time Synchronization",
+  "main": "api/index.js",
+  "scripts": {
+    "start": "node qr-time-app/server.js"
+  },
+  "dependencies": {
+    "express": "^4.21.2",
+    "qrcode": "^1.5.4"
+  }
+}

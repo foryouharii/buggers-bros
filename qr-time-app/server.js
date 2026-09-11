@@ -189,18 +189,22 @@ app.use((req, res) => {
     res.status(404).sendFile(path.join(__dirname, 'public', 'scan.html'));
 });
 
-// Start Server
-app.listen(PORT, '0.0.0.0', () => {
-    const localIp = getLocalIpAddress();
-    console.log(`\n=================================================`);
-    console.log(`⏱️  QR Time Smartwatch Server is Running!`);
-    console.log(`=================================================`);
-    console.log(`📍 Local Smartwatch URL : http://localhost:${PORT}/watch`);
-    console.log(`📱 Mobile Network URL   : http://${localIp}:${PORT}/watch`);
-    console.log(`🔍 Direct Scan URL      : http://${localIp}:${PORT}/scan?device=WATCH001`);
-    if (process.env.PUBLIC_URL) {
-        console.log(`🌐 Public URL Configured: ${process.env.PUBLIC_URL}`);
-    }
-    console.log(`⚡ Timezone             : ${TIMEZONE}`);
-    console.log(`=================================================\n`);
-});
+// Start Server (when run directly)
+if (require.main === module || !process.env.VERCEL) {
+    app.listen(PORT, '0.0.0.0', () => {
+        const localIp = getLocalIpAddress();
+        console.log(`\n=================================================`);
+        console.log(`⏱️  QR Time Smartwatch Server is Running!`);
+        console.log(`=================================================`);
+        console.log(`📍 Local Smartwatch URL : http://localhost:${PORT}/watch`);
+        console.log(`📱 Mobile Network URL   : http://${localIp}:${PORT}/watch`);
+        console.log(`🔍 Direct Scan URL      : http://${localIp}:${PORT}/scan?device=WATCH001`);
+        if (process.env.PUBLIC_URL) {
+            console.log(`🌐 Public URL Configured: ${process.env.PUBLIC_URL}`);
+        }
+        console.log(`⚡ Timezone             : ${TIMEZONE}`);
+        console.log(`=================================================\n`);
+    });
+}
+
+module.exports = app;
