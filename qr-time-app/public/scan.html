@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QR Time — Scan Result</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220%22><text y=%2222%22 font-size=%2222%22>⏱️</text></svg>">
+</head>
+<body>
+    <!-- Background Glow Orbs -->
+    <div class="bg-glow-orb bg-glow-orb-1"></div>
+    <div class="bg-glow-orb bg-glow-orb-2"></div>
+
+    <main class="phone-container" id="phoneContainer">
+        
+        <!-- Header & Success Status Card -->
+        <header class="scan-header-card">
+            <div class="brand-badge">
+                <span class="brand-icon">⏱️</span> QR TIME
+            </div>
+            
+            <div>
+                <div class="success-badge-pill">
+                    <span class="success-icon-circle">✓</span>
+                    <span>QR Code Scanned Successfully</span>
+                </div>
+            </div>
+
+            <div class="device-indicator">
+                Source Device: <strong id="deviceValue">WATCH001</strong>
+            </div>
+        </header>
+
+        <!-- Main Live Hero Clock Card -->
+        <section class="hero-clock-card">
+            <div class="clock-label">
+                <span class="live-pulse-dot"></span> Live Synchronized Time
+            </div>
+            <div class="hero-clock-time" id="heroClockTime">--:--:--</div>
+            <div class="hero-clock-sub" id="heroClockSub">Syncing with Indian Standard Time (IST)...</div>
+        </section>
+
+        <!-- Information Grid -->
+        <section class="details-grid">
+            
+            <!-- Date Card (Full Width) -->
+            <div class="info-card full-width">
+                <span class="info-label">📅 Date</span>
+                <span class="info-value" id="dateValue">Loading date...</span>
+            </div>
+
+            <!-- Day Card -->
+            <div class="info-card">
+                <span class="info-label">🗓️ Day</span>
+                <span class="info-value accent" id="dayValue">--</span>
+            </div>
+
+            <!-- Time (Digital Clock) -->
+            <div class="info-card">
+                <span class="info-label">⏰ Current Time</span>
+                <span class="info-value mono" id="timeValue">--:--:--</span>
+            </div>
+
+            <!-- Timezone Card (Full Width) -->
+            <div class="info-card full-width">
+                <span class="info-label">🌐 Time Zone</span>
+                <span class="info-value mono" id="timezoneValue">Asia/Kolkata (IST)</span>
+            </div>
+
+        </section>
+
+        <!-- Scanned At Stamp Card -->
+        <section class="scan-stamp-card">
+            <div class="scan-stamp-left">
+                <span class="info-label">⚡ Scanned At (Exact Capture)</span>
+                <span style="font-size:0.75rem; color:var(--text-muted); margin-top:2px;">Original scan instant</span>
+            </div>
+            <div class="scan-stamp-badge" id="scanStampValue">
+                --:--:--
+            </div>
+        </section>
+
+        <!-- Action Row -->
+        <section class="action-row">
+            <button type="button" id="refreshBtn" class="btn-primary">
+                <span>🔄</span> Resync Time
+            </button>
+            <button type="button" id="shareBtn" class="btn-secondary">
+                <span>🔗</span> Copy Link
+            </button>
+        </section>
+
+    </main>
+
+    <script src="app.js"></script>
+</body>
+</html>

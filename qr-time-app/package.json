@@ -1,0 +1,23 @@
+{
+  "name": "qr-time-app",
+  "version": "1.0.0",
+  "description": "QR Time Smartwatch App - Full-stack web application for scanning smartwatch QR code to view live synchronized time",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js"
+  },
+  "keywords": [
+    "qr-code",
+    "smartwatch",
+    "wear-os",
+    "express",
+    "time-server"
+  ],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.21.2",
+    "qrcode": "^1.5.4"
+  }
+}

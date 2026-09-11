@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QR Time — Smartwatch Display</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220%22><text y=%2222%22 font-size=%2222%22>⌚</text></svg>">
+</head>
+<body>
+    <!-- Background Glow Orbs -->
+    <div class="bg-glow-orb bg-glow-orb-1"></div>
+    <div class="bg-glow-orb bg-glow-orb-2"></div>
+
+    <main class="watch-wrapper">
+        <!-- Physical Watch Simulation Container -->
+        <div class="smartwatch-case" id="watchScreen">
+            <div class="smartwatch-crown"></div>
+            
+            <div class="smartwatch-screen">
+                <!-- Top Status Bar -->
+                <div class="watch-status-bar">
+                    <span class="watch-live-time" id="watchLiveTime">--:--</span>
+                    <div class="watch-battery">
+                        <span>⚡ 98%</span>
+                    </div>
+                </div>
+
+                <!-- Main Watchface Content -->
+                <div class="watch-content">
+                    <div class="watch-title-badge">
+                        <span class="title">QR TIME</span>
+                    </div>
+                    
+                    <p class="watch-subtitle">Scan this QR with your phone</p>
+
+                    <!-- Large Scannable QR Code -->
+                    <div class="watch-qr-box">
+                        <div id="watchQrLoading" class="watch-qr-loading">
+                            Generating QR...
+                        </div>
+                        <img id="watchQrImage" class="watch-qr-image" style="display:none;" alt="QR Time Watch Code">
+                    </div>
+
+                    <!-- Device ID Tag -->
+                    <div class="watch-device-tag">
+                        DEVICE: <span id="watchDeviceIdDisplay">WATCH001</span>
+                    </div>
+                </div>
+
+                <!-- Subtle bottom bar indicator -->
+                <div style="width: 38px; height: 3px; background: rgba(255,255,255,0.2); border-radius: 99px; margin-top: 4px;"></div>
+            </div>
+        </div>
+
+        <!-- Testing & Connectivity Companion Panel -->
+        <section class="watch-tools-panel">
+            <div class="tools-title">
+                <span>📡 QR Destination URL</span>
+            </div>
+            
+            <div class="target-url-row">
+                <span id="targetUrlText" style="flex:1;">Detecting network target...</span>
+                <button type="button" id="copyUrlBtn" class="copy-btn">📋 Copy</button>
+                <button type="button" id="openScanBtn" class="copy-btn" style="color:var(--accent-green);">↗ Test</button>
+            </div>
+
+            <form id="deviceForm" class="device-picker">
+                <input type="text" id="customDeviceInput" class="device-input" placeholder="Device ID (e.g. WATCH001)" maxlength="32">
+                <button type="submit" class="btn">Update QR</button>
+            </form>
+        </section>
+    </main>
+
+    <script src="app.js"></script>
+</body>
+</html>
