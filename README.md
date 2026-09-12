@@ -1,103 +1,133 @@
 <img width="1280" height="640" alt="git (1)" src="https://github.com/user-attachments/assets/8920b256-2ba8-4988-b824-5351134eb4bd" />
 
-
-
-# [Project Name] 🎯
-
+# QR Time — The Overengineered Smartwatch Clock 🎯
 
 ## Basic Details
-### Team Name: [Name]
-
+### Team Name: Bugger Bros
 
 ### Team Members
-- Team Lead: [Name] - [College]
-- Member 2: [Name] - [College]
-- Member 3: [Name] - [College]
+- Team Lead: HARIRAMAN T O - College of Engineering Attingal
+- Member 2: ASWIN S - College of Engineering Attingal
 
 ### Project Description
-[2-3 lines about what your project does]
+An ultra-overengineered way to check the time! Instead of displaying hours and minutes on your smartwatch screen, it displays a static QR code. When you scan that QR code using your smartphone camera, it redirects you to a live web application that queries our cloud backend in real time to calculate and display the current date, time, day, timezone, and exact scan instant.
 
 ### The Problem (that doesn't exist)
-[What ridiculous problem are you solving?]
+Glancing at your wrist to check the time takes less than 0.5 seconds and requires zero internet connection. This is dangerously convenient and completely ruins the thrill of discovering what time it is!
 
 ### The Solution (that nobody asked for)
-[How are you solving it? Keep it fun!]
+We turned the smartwatch into a dedicated QR code billboard. To know the time, you must now:
+1. Turn on your smartwatch to look at the QR code.
+2. Reach into your pocket and pull out your smartphone.
+3. Open your phone camera and carefully frame the smartwatch on your wrist.
+4. Tap the detected URL to send an HTTP request across the internet to our Vercel serverless cloud API.
+5. Watch your phone calculate and render the live ticking clock in Indian Standard Time (`Asia/Kolkata`)!
+
+---
 
 ## Technical Details
-### Technologies/Components Used
-For Software:
-- [Languages used]
-- [Frameworks used]
-- [Libraries used]
-- [Tools used]
 
-For Hardware:
-- [List main components]
-- [List specifications]
-- [List tools required]
+### Technologies/Components Used
+
+#### For Software:
+- **Languages used**: JavaScript (Node.js ES6+), HTML5, CSS3, Kotlin
+- **Frameworks used**: Express.js, Android Jetpack
+- **Libraries used**: `qrcode` (npm), `androidx.camera:camera-camera2` (CameraX), `com.google.mlkit:barcode-scanning`, `com.google.zxing:core`
+- **Tools used**: Android Studio, Visual Studio Code, Vercel, Git, GitHub
+
+#### For Hardware:
+- **Main components**: Wear OS Smartwatch (or Browser Watchface Simulator), Android Smartphone with Camera
+- **Specifications**: High-resolution AMOLED watch display, rear camera autofocus with QR reading capability
+- **Tools required**: Wi-Fi / Cellular Internet connection
+
+---
 
 ### Implementation
-For Software:
+
+#### For Software:
+
 # Installation
-[commands]
+```bash
+git clone https://github.com/foryouharii/buggers-bros.git
+cd buggers-bros/qr-time-app
+npm install
+```
 
 # Run
-[commands]
+```bash
+npm start
+```
+Or view the live cloud deployment directly at:  
+👉 **[https://buggers-bros-n5gl.vercel.app/watch](https://buggers-bros-n5gl.vercel.app/watch)**
+
+---
 
 ### Project Documentation
-For Software:
 
-# Screenshots (Add at least 3)
-![Screenshot1](Add screenshot 1 here with proper name)
-*Add caption explaining what this shows*
+#### For Software:
 
-![Screenshot2](Add screenshot 2 here with proper name)
-*Add caption explaining what this shows*
+# Screenshots
+![Smartwatch QR Screen](https://raw.githubusercontent.com/foryouharii/buggers-bros/main/qr-time-app/public/watch.html)
+*1. Smartwatch Watchface displaying the fixed scannable QR Code and Device ID (`WATCH001`)*
 
-![Screenshot3](Add screenshot 3 here with proper name)
-*Add caption explaining what this shows*
+![Mobile Scan Result](https://raw.githubusercontent.com/foryouharii/buggers-bros/main/qr-time-app/public/scan.html)
+*2. Phone Scan Result Page showing exact captured scan time, live ticking clock, full date, day, and IST timezone*
+
+![API Response](https://buggers-bros-n5gl.vercel.app/api/time?device=WATCH001)
+*3. Backend `/api/time` returning real-time synchronized JSON timestamp from the server*
 
 # Diagrams
-![Workflow](Add your workflow/architecture diagram here)
-*Add caption explaining your workflow*
+```
+┌──────────────────────────────────────┐
+│       Smartwatch / Watchface         │
+│  ┌────────────────────────────────┐  │
+│  │         QR TIME WATCH          │  │
+│  │      [  QR CODE IMAGE  ]       │  │
+│  │    /scan?device=WATCH001       │  │
+│  └────────────────────────────────┘  │
+└──────────────────┬───────────────────┘
+                   │
+                   │  📷 Scan with Phone Camera
+                   ▼
+┌──────────────────────────────────────┐
+│           Mobile Smartphone          │
+│   Opens https://.../scan?device=...   │
+│                   │                  │
+│                   ▼                  │
+│   Queries GET /api/time (Express)    │
+│                   │                  │
+│                   ▼                  │
+│   Displays:                          │
+│   ✓ Scanned Successfully             │
+│   ⏰ Live Clock: 04:52:10 AM         │
+│   ⚡ Scanned At: 04:52:10 AM         │
+│   📅 Date: Saturday, 12 Sep 2026     │
+│   🌐 Time Zone: Asia/Kolkata (IST)   │
+└──────────────────────────────────────┘
+```
+*Architecture & Data Workflow of QR Time*
 
-For Hardware:
-
-# Schematic & Circuit
-![Circuit](Add your circuit diagram here)
-*Add caption explaining connections*
-
-![Schematic](Add your schematic diagram here)
-*Add caption explaining the schematic*
-
-# Build Photos
-![Components](Add photo of your components here)
-*List out all components shown*
-
-![Build](Add photos of build process here)
-*Explain the build steps*
-
-![Final](Add photo of final product here)
-*Explain the final build*
+---
 
 ### Project Demo
+
 # Video
-[Add your demo video link here]
-*Explain what the video demonstrates*
+[https://buggers-bros-n5gl.vercel.app/watch](https://buggers-bros-n5gl.vercel.app/watch)  
+*Demonstrates opening the smartwatch QR screen, scanning it with a mobile camera, and immediately viewing the live synchronized time on the phone.*
 
 # Additional Demos
-[Add any extra demo materials/links]
+- **Live Smartwatch View**: [https://buggers-bros-n5gl.vercel.app/watch](https://buggers-bros-n5gl.vercel.app/watch)
+- **Live Mobile Scan View**: [https://buggers-bros-n5gl.vercel.app/scan?device=WATCH001](https://buggers-bros-n5gl.vercel.app/scan?device=WATCH001)
+- **Time API JSON Endpoint**: [https://buggers-bros-n5gl.vercel.app/api/time?device=WATCH001](https://buggers-bros-n5gl.vercel.app/api/time?device=WATCH001)
+
+---
 
 ## Team Contributions
-- [Name 1]: [Specific contributions]
-- [Name 2]: [Specific contributions]
-- [Name 3]: [Specific contributions]
+- **HARIRAMAN T O**: Full-stack backend API development, Express server implementation, real-time clock synchronization algorithms, and Vercel cloud deployment.
+- **ASWIN S**: Smartwatch UI design, mobile scan interface, Android/Wear OS module integration, camera scanner pipeline, and testing.
 
 ---
 Made with ❤️ at TinkerHub Useless Projects 
 
 ![Static Badge](https://img.shields.io/badge/TinkerHub-24?color=%23000000&link=https%3A%2F%2Fwww.tinkerhub.org%2F)
 ![Static Badge](https://img.shields.io/badge/UselessProjects--26-26?link=https%3A%2F%2Ftinkerhub.org%2Fevents%2F1M8ORET9A1%2Fuseless-projects-3.0)
-
-
-
