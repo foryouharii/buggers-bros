@@ -68,10 +68,13 @@ Or view the live cloud deployment directly at:
 
 # Screenshots
 ![Smartwatch QR Screen](https://raw.githubusercontent.com/foryouharii/buggers-bros/main/qr-time-app/public/watch.html)
+<img width="1920" height="1080" alt="Screenshot 2026-09-12 094418" src="https://github.com/user-attachments/assets/15ea67e3-7cfc-4539-ad08-1483fb05c7fd" />
+
 *1. Smartwatch Watchface displaying the fixed scannable QR Code and Device ID (`WATCH001`)*
 
 ![Mobile Scan Result](https://raw.githubusercontent.com/foryouharii/buggers-bros/main/qr-time-app/public/scan.html)
 *2. Phone Scan Result Page showing exact captured scan time, live ticking clock, full date, day, and IST timezone*
+<img width="720" height="1600" alt="8fe10067-c943-4d8f-89da-9cca5d8f4bb9" src="https://github.com/user-attachments/assets/36017780-8392-404b-8c04-4af36111300f" />
 
 ![API Response](https://buggers-bros-n5gl.vercel.app/api/time?device=WATCH001)
 *3. Backend `/api/time` returning real-time synchronized JSON timestamp from the server*
@@ -113,6 +116,12 @@ Or view the live cloud deployment directly at:
 
 # Video
 [https://buggers-bros-n5gl.vercel.app/watch](https://buggers-bros-n5gl.vercel.app/watch)  
+
+
+
+https://github.com/user-attachments/assets/85b24ee1-d7bd-4518-91c2-1ccbb8d1b9e5
+
+
 *Demonstrates opening the smartwatch QR screen, scanning it with a mobile camera, and immediately viewing the live synchronized time on the phone.*
 
 # Additional Demos
